@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
-import MsModal from './modal'
+import KiligModal from './modal'
 import type { MsModalAction, MsModalProps, UseOpenType } from './types'
 
 const useOpen: UseOpenType = () => {
   const actionRef = useRef<MsModalAction>(null)
   const NewModal: React.FC<MsModalProps> = (props) => {
-    return <MsModal {...props} ref={actionRef} />
+    return <KiligModal {...props} ref={actionRef} />
   }
 
   return [

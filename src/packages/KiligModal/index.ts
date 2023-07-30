@@ -33,10 +33,10 @@ type MsModalComponent = ComponentType<Omit<MsModalProps, 'useModal'>> & {
   destroy: typeof NiceModal.remove
 } & typeof Modal
 
-const MsModal = InternalMsModal as unknown as MsModalComponent
+const KiligModal = InternalMsModal as unknown as MsModalComponent
 
-MsModal.useOpen = useOpen
-MsModal.useModal = ((...props: any) => {
+KiligModal.useOpen = useOpen
+KiligModal.useModal = ((...props: any) => {
   const modal = (useModal as any).apply(props)
   modal.props = antdModalV5(modal)
   modal.open = modal.show
@@ -45,15 +45,15 @@ MsModal.useModal = ((...props: any) => {
   return modal
 }) as any
 
-MsModal.info = Modal.info
-MsModal.success = Modal.success
-MsModal.warning = Modal.warning
-MsModal.error = Modal.error
-MsModal.confirm = Modal.confirm
-MsModal.destroyAll = Modal.destroyAll
-MsModal.create = NiceModal.create
-MsModal.open = NiceModal.show
-MsModal.close = NiceModal.hide
-MsModal.destroy = NiceModal.remove
+KiligModal.info = Modal.info
+KiligModal.success = Modal.success
+KiligModal.warning = Modal.warning
+KiligModal.error = Modal.error
+KiligModal.confirm = Modal.confirm
+KiligModal.destroyAll = Modal.destroyAll
+KiligModal.create = NiceModal.create
+KiligModal.open = NiceModal.show
+KiligModal.close = NiceModal.hide
+KiligModal.destroy = NiceModal.remove
 
-export default MsModal
+export default KiligModal

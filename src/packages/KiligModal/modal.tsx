@@ -10,7 +10,7 @@ const SIZE_WIDTH_MAP = {
   large: 900,
 }
 
-const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
+const KiligModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
   const { destroyOnClose = false, maskClosable = false, onOk, onCancel, closable, size = 'small', width, ...restProps } = props
   const { open, trigger, toggle, setOpen } = useTrigger(props)
   const [okLoading, setOkLoading] = useState(false)
@@ -62,4 +62,4 @@ const MsModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
   )
 })
 
-export default MsModal
+export default KiligModal
