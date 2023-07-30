@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "author": "KiligFei <1775814844@qq.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "umi": "^4.0.73"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.8",
+    "@types/react": "^18.2.17",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.46.0",
+    "typescript": "^5.1.6"
+  }
+}
