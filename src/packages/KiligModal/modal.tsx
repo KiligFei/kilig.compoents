@@ -46,7 +46,7 @@ const KiligModal = forwardRef<MsModalAction, MsModalProps>((props, ref) => {
     <>
       {trigger}
       <Modal
-        width={width}
+        width={_width}
         open={open}
         destroyOnClose={destroyOnClose}
         maskClosable={maskClosable}
