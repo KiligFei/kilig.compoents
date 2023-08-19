@@ -12,7 +12,6 @@ export interface TriggerProps {
  * 2.不传 trigger，传 open 和 onClose，由调用者维护 open 和 setOpen
  */
 function useTrigger(props: Record<string, any> & TriggerProps) {
-  console.log('🚀 ~ file: index.tsx:15 ~ props:', props)
   const { trigger } = props
   const [open, setOpen] = useControllableValue<boolean>(props, {
     valuePropName: 'open',
@@ -24,7 +23,7 @@ function useTrigger(props: Record<string, any> & TriggerProps) {
       return React.cloneElement(_trigger, {
         key: 'trigger',
         ..._trigger.props,
-        onclick: (e: any) => {
+        onClick: (e: any) => {
           setOpen(true)
           _trigger.props.onClick?.(e)
         },
