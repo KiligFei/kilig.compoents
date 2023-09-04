@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #111;
+    }
+
+    .container {
+      gap: 8px;
+      display: grid;
+      width: fit-content;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .box {
+      color: white;
+      position: relative;
+      width: 300px;
+      height: 100px;
+    }
+
+    .box::after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      transition: opacity 500ms;
+      background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.6), transparent 20%);
+      position: absolute;
+      z-index: 1;
+    }
+
+    .box-content {
+      background-color: #111;
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      inset: 1px;
+    }
+
+    .box:hover::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transition: opacity 500ms;
+      background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.08), transparent 30%);
+      z-index: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="container">
+      <div class="box">
+        <div class="box-content">Lorem Ipsum</div>
+      </div>
+      <div class="box">
+        <div class="box-content">Lorem Ipsum</div>
+      </div>
+      <div class="box">
+        <div class="box-content">Lorem Ipsum</div>
+      </div>
+      <div class="box">
+        <div class="box-content">Lorem Ipsum</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.body.onmousemove = (e) => {
+      for (const date of document.getElementsByClassName('box')) {
+        const rect = date.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+
+        date.style.setProperty('--mouse-x', `${x}px`)
+        date.style.setProperty('--mouse-y', `${y}px`)
+      }
+    }
+  </script>
+</body>
+
+</html>
